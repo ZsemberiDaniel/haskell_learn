@@ -31,7 +31,7 @@ reverseTimes :: Int -> [(Int, Int)] -> [(Int, Int)]
 reverseTimes 365 [] = [] -- finished calculation and 365 is forbidden
 reverseTimes timeAt [] = [(timeAt, 365)] -- finished calculation and 365 is not forbidden
 reverseTimes timeAt ((tStart, tEnd):times)
-    | tStart == 1 = reverseTimes (tEnd + 1) times -- day 1 is forbidden (skip first)
+    | tStart == 1 = reverseTimes (tEnd + 1) times -- day 1 is forbidden -> (skip first)
     | otherwise = (timeAt, tStart - 1):(reverseTimes (tEnd + 1) times)
 
 -- this function combines the forbidden times (removes overlaps)
